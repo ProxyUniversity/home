@@ -70,7 +70,7 @@
 
     /* CONTENT */
     .logo img {
-      height: 150px;
+      height: 250px;
       width: auto;
       margin-bottom: 20px;
       z-index: 2;
@@ -85,7 +85,7 @@
       position: relative;
     }
 
-    /* BUTTON */
+    /* BUTTON (top-right video control) */
     .video-btn {
       position: absolute;
       bottom: 20px;
@@ -98,11 +98,9 @@
       z-index: 3;
     }
 
-    /* NEW ENROLL BUTTON */
+    /* ENROLL BUTTON (NOW UNDER TEXT) */
     .enroll-btn {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
+      margin-top: 20px;
       padding: 10px 18px;
       background: #1e6bff;
       color: white;
@@ -112,6 +110,7 @@
       font-size: 16px;
       border-radius: 4px;
       text-decoration: none;
+      position: relative;
     }
 
     @media (max-width: 768px) {
@@ -151,15 +150,15 @@
       Proxy University, is a great school to attend.
     </div>
 
-    <!-- BUTTON -->
-    <button class="video-btn" onclick="toggleVideo()">
-      Pause / Play
-    </button>
-
-    <!-- ENROLL BUTTON -->
+    <!-- ENROLL BUTTON (UNDER TEXT) -->
     <a class="enroll-btn" href="https://youtube.com" target="_blank">
       Enroll Now
     </a>
+
+    <!-- VIDEO BUTTON -->
+    <button class="video-btn" onclick="toggleVideo()">
+      Pause / Play
+    </button>
 
   </div>
 
