@@ -56,6 +56,18 @@
       object-fit: cover;
     }
 
+    /* 🔳 DARK SHADER OVERLAY */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0.35;
+      z-index: 1;
+    }
+
     /* CONTENT */
     .logo img {
       height: 150px;
@@ -109,6 +121,9 @@
         <source src="./web_topper_v4_1.mp4" type="video/mp4" />
       </video>
     </div>
+
+    <!-- 🔳 SHADER OVERLAY -->
+    <div class="video-overlay"></div>
 
     <!-- LOGO -->
     <div class="logo">
