@@ -85,7 +85,7 @@
       position: relative;
     }
 
-    /* BUTTON (top-right video control) */
+    /* VIDEO BUTTON */
     .video-btn {
       position: absolute;
       bottom: 20px;
@@ -96,9 +96,10 @@
       border: 1px solid white;
       cursor: pointer;
       z-index: 3;
+      font-family: "Graduate", serif;
     }
 
-    /* ENROLL BUTTON (NOW UNDER TEXT) */
+    /* ENROLL BUTTON */
     .enroll-btn {
       margin-top: 20px;
       padding: 10px 18px;
@@ -109,8 +110,56 @@
       z-index: 3;
       font-size: 16px;
       border-radius: 4px;
-      text-decoration: none;
       position: relative;
+      font-family: "Graduate", serif;
+    }
+
+    /* PASSWORD IMAGE */
+    #passwordImage {
+      display: none;
+      position: relative;
+      z-index: 3;
+      max-width: 80%;
+      max-height: 80vh;
+      margin-top: 20px;
+    }
+
+    /* PASSWORD POPUP */
+    .password-popup {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      background: rgba(0,0,0,0.95);
+      border: 2px solid white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .password-popup h1 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    .password-popup p {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .password-popup input {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      margin-top: 10px;
+      font-family: "Graduate", serif;
+    }
+
+    .password-popup button {
+      margin-top: 15px;
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: "Graduate", serif;
     }
 
     @media (max-width: 768px) {
@@ -141,19 +190,45 @@
     <div class="video-overlay"></div>
 
     <!-- LOGO -->
-    <div class="logo">
+    <div class="logo" id="logo">
       <img src="logov2.png" alt="Logo" />
     </div>
 
     <!-- TEXT -->
-    <div class="text">
+    <div class="text" id="mainText">
       Proxy University, is a great school to attend.
     </div>
 
-    <!-- ENROLL BUTTON (UNDER TEXT) -->
-    <a class="enroll-btn" href="https://youtube.com" target="_blank">
+    <!-- ENROLL BUTTON -->
+    <button class="enroll-btn" id="enrollBtn" onclick="openPopup()">
       Enroll Now
-    </a>
+    </button>
+
+    <!-- PASSWORD IMAGE -->
+    <img 
+      id="passwordImage"
+      src="PASSWORD IS “STUDENT123”.png"
+      alt="Password"
+    />
+
+    <!-- PASSWORD POPUP -->
+    <div class="password-popup" id="passwordPopup">
+      <h1>Teacher Protected</h1>
+
+      <input 
+        type="password" 
+        id="passwordInput" 
+        placeholder="Enter Password"
+      />
+
+      <br>
+
+      <button onclick="checkPassword()">
+        Enter
+      </button>
+
+      <p>its a student zone NO TEACHERS bro</p>
+    </div>
 
     <!-- VIDEO BUTTON -->
     <button class="video-btn" onclick="toggleVideo()">
@@ -170,6 +245,30 @@
         video.play();
       } else {
         video.pause();
+      }
+    }
+
+    function openPopup() {
+      document.getElementById("passwordPopup").style.display = "block";
+    }
+
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value;
+
+      if (
+        password === "Student" ||
+        password === "student" ||
+        password === "STUDENT123"
+      ) {
+        document.getElementById("passwordPopup").style.display = "none";
+
+        document.getElementById("logo").style.display = "none";
+        document.getElementById("mainText").style.display = "none";
+        document.getElementById("enrollBtn").style.display = "none";
+
+        document.getElementById("passwordImage").style.display = "block";
+      } else {
+        alert("Wrong Password");
       }
     }
   </script>
